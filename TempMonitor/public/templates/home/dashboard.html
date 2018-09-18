@@ -1,0 +1,114 @@
+﻿<div ng-repeat="sensor in sensors" ng-if="$index%4==0" class="row">
+    <div ng-init="s=sensors[$index]" class="col-md-5 col-md-offset-1"  style="border: solid">
+        <div class="row">
+            <div class="col-md-25">
+                <img alt="{{s.outlet.state}}" class="center-block img-responsive img-thumbnail" ng-class="{outletOn:(s.outlet.state==='ON') , outletOff:(s.outlet.state==='OFF')}" src="/images/outlet.png" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-25 text-center">
+                <label><a ui-sref="home.sensors.view({id:s.id})">{{s.name}}</a></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Serial:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{s.serial}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Temp:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{s.temperature|temperature:"F":1000:"C":2}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Active:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{(s.monitor==1)}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Time:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{toDate(s.timestamp)}}</div>
+        </div>                                                                  
+    </div>
+    <div ng-if="$index+1 < sensors.length" ng-init="s=sensors[$index+1]" class="col-md-5 col-md-offset-1" style="border: solid">
+        <div class="row">
+            <div class="col-md-25">
+                <img alt="{{s.outlet.state}}" class="center-block img-responsive img-thumbnail" ng-class="{outletOn:(s.outlet.state==='ON') , outletOff:(s.outlet.state==='OFF')}" src="/images/outlet.png" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-25 text-center">
+                <label><a ui-sref="home.sensors.view({id:s.id})">{{s.name}}</a></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Serial:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{s.serial}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Temp:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{s.temperature|temperature:"F":1000:"C":2}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Active:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{(s.monitor==1)}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Time:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{toDate(s.timestamp)}}</div>
+        </div>                                                                                                                                           
+    </div>                                                                             
+    <div ng-if="$index+2 < sensors.length" ng-init="s=sensors[$index+2]" class="col-md-5 col-md-offset-1" style="border: solid">
+        <div class="row">
+            <div class="col-md-25">
+                <img alt="{{s.outlet.state}}" class="center-block img-responsive img-thumbnail" ng-class="{outletOn:(s.outlet.state==='ON') , outletOff:(s.outlet.state==='OFF')}" src="/images/outlet.png" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-25 text-center">
+                <label><a ui-sref="home.sensors.view({id:s.id})">{{s.name}}</a></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Serial:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{s.serial}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Temp:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{s.temperature|temperature:"F":1000:"C":2}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Active:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{(s.monitor==1)}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Time:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{toDate(s.timestamp)}}</div>
+        </div>                                                                  
+    </div>                                                                             
+    <div ng-if="$index+3 < sensors.length" ng-init="s=sensors[$index+3]" class="col-md-5 col-md-offset-1" style="border: solid">
+        <div class="row">
+            <div class="col-md-25">
+                <img alt="{{s.outlet.state}}" class="center-block img-responsive img-thumbnail" ng-class="{outletOn:(s.outlet.state==='ON') , outletOff:(s.outlet.state==='OFF')}" src="/images/outlet.png" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-25 text-center">
+                <label><a ui-sref="home.sensors.view({id:s.id})">{{s.name}}</a></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Serial:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{s.serial}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Temp:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{s.temperature|temperature:"F":1000:"C":2}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Active:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{(s.monitor==1)}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"><label>Time:</label></div>
+            <div class="col-md-19 col-md-offset-1">{{toDate(s.timestamp)}}</div>
+        </div>                                                                  
+    </div>
+</div>

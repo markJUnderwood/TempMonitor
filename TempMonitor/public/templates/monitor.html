@@ -1,0 +1,10 @@
+﻿<div class="row" ng-repeat="sensor in sensors | filter:{monitor: '1'} ">
+    <div class="col-md-8 text-right"><label>{{sensor.name}}</label></div>
+    <div class="col-md-2">{{sensor.temperature|temperature:"F":1000:"C":2}}</div>
+    <div class="col-md-2 col-md-offset-2">
+        <img alt="{{sensor.outlet.state}}" class="img-responsive img-thumbnail" style="max-height: 50px" ng-class="{outletOn:(sensor.outlet.state==='ON') , outletOff:(sensor.outlet.state==='OFF')}" src="/images/outlet.png"/>
+    </div>
+    <div class="col-md-10">
+        {{toShortDate(sensor.timestamp)}}
+    </div>
+</div>

@@ -1,0 +1,125 @@
+﻿<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">
+            <h1 class="h2">{{sensor.name}}</h1>
+        </div>
+        <div class="panel-body">
+            <!--Sensor Information-->
+            <div class="row list-group">
+                <div class="row">
+                    <div class="col-md-25">
+                        <div class="row text-center">
+                            <h2 class="h3">Sensor Infomation</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7 col-md-offset-2">
+                        <div class="row list-group-item">
+                            <div class="col-md-12 text-right">
+                                <label>Serial Number:</label>
+                            </div>
+                            <div class="col-md-13">
+                                {{sensor.serial}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row list-group-item">
+                            <div class="col-md-12 text-right">
+                                <label>Active:</label>
+                            </div>
+                            <div class="col-md-13">
+                                {{sensor.monitor}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row list-group-item">
+                            <div class="col-md-12 text-right">
+                                <label>Target Temp:</label>
+                            </div>
+                            <div class="col-md-13">
+                                {{sensor.setTemperature|temperature:"F":1000:"C":2}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Outlet Information-->
+            <div class="row list-group">
+                <div class="col-md-25">
+                    <div class="row text-center">
+                        <h2 class="h3">Outlet Infomation</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7 col-md-offset-2">
+                            <div class="row list-group-item">
+                                <div class="col-md-12 text-right">
+                                    <label>Outlet Name:</label>
+                                </div>
+                                <div class="col-md-13">
+                                    {{sensor.outlet.name}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row list-group-item">
+                                <div class="col-md-12 text-right">
+                                    <label>On Code:</label>
+                                </div>
+                                <div class="col-md-13">
+                                    {{sensor.outlet.onCode}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row list-group-item">
+                                <div class="col-md-12 text-right">
+                                    <label>Off Code:</label>
+                                </div>
+                                <div class="col-md-13">
+                                    {{sensor.outlet.offCode}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Logs-->
+            <div class="row">
+                <div class="col-md-25">
+                    <table class="table table-responsive table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Temperature</th>
+                                <th>Outlet State</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="entry in sensor.logs">
+                                <td>{{entry.timeStamp|date:"medium"}}</td>
+                                <td>{{entry.temperature|temperature:"F":1000:"C":2}}</td>
+                                <td>{{entry.outlet.state}}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot></tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-1 col-md-offset-23">
+                    <a href="" ui-sref="home.sensors.view.edit({id:sensor.id})"><span class="glyphicon glyphicon-pencil"></span></a>
+                </div>
+                <div class="col-md-1">
+                    <a href="" ng-confirm-click="Are you sure you want to delete {{sensor.name}}?" confirmed-click="delete()"><span class="glyphicon glyphicon-trash"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>

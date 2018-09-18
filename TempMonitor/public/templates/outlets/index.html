@@ -1,0 +1,48 @@
+﻿<div class="row">
+    <div class="col-md-25">
+        <table class="table table-responsive table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>On Code</th>
+                    <th>Off Code</th>
+                    <th></th><!--Edit-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="outlet in outlets">
+                    <td>
+                        <!--<input class="center-block" type="checkbox" ng-model="outlet.selected"/>-->
+                    </td>
+                    <td>
+                        <a uib-tooltip="Outlet Name" ui-sref="home.outlets.view({id:outlet.id})">{{outlet.name}}</a>
+                    </td>
+                    <td>
+                        <span uib-tooltip="Code to turn the outlet on">{{outlet.onCode}}</span>
+                    </td>
+                    <td>
+                        <span uib-tooltip="Code to turn othe outlet off">{{outlet.offCode}}</span>
+                    </td>
+                    <td>
+                        <a ui-sref="home.outlets.view.edit({id:outlet.id})"><span class="glyphicon glyphicon-pencil" uib-tooltip="Edit Outlet"></span></a>
+                        <a href="" ng-confirm-click="Are you sure you want to delete {{outlet.name}}?" confirmed-click="delete($index)">
+                            <span class="glyphicon glyphicon-trash" uib-tooltip="Delete Outlet"></span>
+                        </a>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><a href="" ui-sref="home.outlets.view.edit({id:-1})"><span class="glyphicon glyphicon-plus" uib-tooltip="Add"></span></a></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <!--<a href="" ng-click="deleteSelected()"><span uib-tooltip="Delete Selected" class="glyphicon glyphicon-trash"></span></a>
+                        <a href="" ng-click="toggleSelected()"><span uib-tooltip="Toggle Selected" class="glyphicon glyphicon-refresh"></span></a>-->
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿<div class="row">
+    <div class="col-md-25">
+        <table class="table table-responsive table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Serial</th>
+                    <th>Monitor</th>
+                    <th>Outlet</th>
+                    <th>Target Temperature</th>
+                    <th></th><!--Edit-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sensor in sensors">
+                    <td>
+                        <!--<input class="center-block" type="checkbox" ng-model="sensor.selected"/>-->
+                    </td>
+                    <td >
+                        <a uib-tooltip="Sensor Name" ui-sref="home.sensors.view({id:sensor.id})">{{sensor.name}}</a>
+                    </td>
+                    <td >
+                        <span uib-tooltip="Sensor Serial Number">{{sensor.serial}}</span>
+                    </td>
+                    <td>
+                        <span uib-tooltip="Monitor this sensor?">{{sensor.monitor}}</span> 
+                    </td>
+                    <td>
+                        <a uib-tooltip="Outlet this sensor controls" ui-sref="home.outlets.view({id:sensor.outlet.id})">{{sensor.outlet.name}}</a>
+                    </td>
+                    <td >
+                        <span uib-tooltip="Target Temperature">{{sensor.setTemperature|temperature:"F":1000:"C":2}}</span>
+                    </td>
+                    <td >
+                    <a ui-sref="home.sensors.view.edit({id:sensor.id})"><span class="glyphicon glyphicon-pencil" uib-tooltip="Edit Sensor"></span></a>
+                    <a href="" ng-click="toggle($index)">
+                        <span class="glyphicon glyphicon-download" ng-if="sensor.monitor" uib-tooltip="Deactive Sensor"></span>
+                        <span class="glyphicon glyphicon-upload" ng-if="!sensor.monitor" uib-tooltip="Activate Sensor"></span>
+                    </a>
+                    <a href="" ng-confirm-click="Are you sure you want to delete {{sensor.name}}?" confirmed-click="delete($index)"><span class="glyphicon glyphicon-trash" uib-tooltip="Delete Sensor"></span></a>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <a href="" ui-sref="home.sensors.view.edit({id:-1})"><span class="glyphicon glyphicon-plus" uib-tooltip="Add"></span></a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <!--<a href="" ng-click="deleteSelected()"><span uib-tooltip="Delete Selected" class="glyphicon glyphicon-trash"></span></a>
+                        <a href="" ng-click="toggleSelected()"><span uib-tooltip="Toggle Selected" class="glyphicon glyphicon-refresh"></span></a>-->
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

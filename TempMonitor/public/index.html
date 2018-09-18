@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html ng-app="TempMonitor" ng-controller="baseController" ng-cloak>
+<head ng-cloak>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <base href="/">
+    <script src="scripts/angular.min.js"></script>
+    <meta charset="utf-8"/>
+    <title ng-bind="title">Temperature Monitor</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="stylesheets/site.css"/>
+</head>
+<body ng-cloak>
+<div ui-view="navContainer">
+</div>
+<div class="row">
+    <div class="col-md-18" ui-view="content"></div>
+    <div class="col-md-7" ui-view="monitorView"></div>
+</div>
+<script src="scripts/angular-resource.min.js"></script>
+    <script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="scripts/angular-ui-router.js"></script>
+    <script src="scripts/TempMonitor.js"></script>
+    <script src="scripts/factories/tempMonitorData.js"></script>
+    <script src="scripts/directives/TemperatureFilter.js"></script>
+    <script src="scripts/directives/Confirm.js"></script>
+    <script src="scripts/directives/temperature.js"></script>
+    <script src="scripts/controllers/baseController.js"></script>
+    <script src="scripts/controllers/dashboardController.js"></script>
+    <script src="scripts/controllers/sensorEditController.js"></script>
+    <script src="scripts/controllers/monitorController.js"></script>
+    <script src="scripts/controllers/navbarController.js"></script>
+    <script src="scripts/controllers/outletController.js"></script>
+    <script src="scripts/controllers/outletEditController.js"></script>
+    <script src="scripts/controllers/sensorController.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+﻿<div class="container">
+    <div class="col-md-25 text-center">
+        <h2 class="modal-title">
+            {{verb}} Outlet
+        </h2>
+    </div>
+    <form class="form-horizontal" name="editOutlet">
+        <div class="form-group has-feedback" ng-class="{'has-error': editOutlet.name.$invalid,'has-success':(editOutlet.name.$valid && editOutlet.name.$dirty)}">
+            <label for="name" class="control-label col-md-6">Name</label>
+            <div class="col-md-12">
+                <input id="name" name="name" type="text" required="required" class="form-control" ng-model="outlet.name" ng-maxlength="255" />
+                <span class="glyphicon form-control-feedback " ng-class="{'glyphicon-remove':editOutlet.name.$invalid,'glyphicon-ok':editOutlet.name.$valid && editOutlet.name.$dirty}"></span>
+                <ul class="danger text-danger">
+                    <li ng-if="editOutlet.name.$error.required">Name is required</li>
+                    <li ng-if="editOutlet.name.$error.maxlength">Name cannot be more than 255 characters</li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group  has-feedback" ng-class="{'has-error': editOutlet.onCode.$invalid,'has-success':(editOutlet.onCode.$valid && editOutlet.onCode.$dirty)}">
+            <label for="onCode" class="control-label col-md-6">On Code</label>
+            <div class="col-md-12">
+                <input id="onCode" name="onCode" type="text" required="required" class="form-control"
+                       ng-model="outlet.onCode" minlength="6" maxlength="6" />
+                <span class="glyphicon form-control-feedback " ng-class="{'glyphicon-remove':editOutlet.onCode.$invalid,'glyphicon-ok':editOutlet.onCode.$valid && editOutlet.onCode.$dirty}"></span>
+                <ul class="danger text-danger">
+                    <li ng-if="editOutlet.onCode.$error.required">On Code is required</li>
+                    <li ng-if="editOutlet.onCode.$error.minlength || editOutlet.onCode.$error.minlength">On Code must be exactly 6 characters</li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group  has-feedback" ng-class="{'has-error': editOutlet.offCode.$invalid,'has-success':(editOutlet.offCode.$valid && editOutlet.offCode.$dirty)}">
+            <label for="offCode" class="control-label col-md-6">Off Code</label>
+            <div class="col-md-12">
+                <input id="offCode" name="offCode" type="text" required="required" class="form-control"
+                       ng-model="outlet.offCode" minlength="6" maxlength="6" />
+                <span class="glyphicon form-control-feedback " ng-class="{'glyphicon-remove':editOutlet.offCode.$invalid,'glyphicon-ok':editOutlet.offCode.$valid && editOutlet.offCode.$dirty}"></span>
+                <ul class="danger text-danger">
+                    <li ng-if="editOutlet.offCode.$error.required">On Code is required</li>
+                    <li ng-if="editOutlet.offCode.$error.minlength || editOutlet.offCode.$error.minlength">On Code must be exactly 6 characters</li>
+                </ul>
+            </div>
+        </div>
+    </form>
+    <div class="col-md-5 col-md-offset-20">
+        <button class="btn" ng-click="close()" ng-disabled="editOutlet.$invalid">Save</button>
+    </div>
+</div>

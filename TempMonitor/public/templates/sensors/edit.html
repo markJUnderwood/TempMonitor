@@ -1,0 +1,65 @@
+﻿<div class="container">
+    <div class="col-md-25 text-center">
+        <h2 class="modal-title">
+            {{verb}} Sensor
+        </h2>
+    </div>
+    <form class="form-horizontal" name="editSensor">
+        <div class="form-group has-feedback" ng-class="{'has-error': editSensor.name.$invalid,'has-success':(editSensor.name.$valid && editSensor.name.$dirty)}">
+            <label for="name" class="control-label col-md-6">Name</label>
+            <div class="col-md-12">
+                <input id="name" name="name" type="text" required="required" class="form-control" ng-model="sensor.name" ng-maxlength="255" />
+                <span class="glyphicon form-control-feedback " ng-class="{'glyphicon-remove':editSensor.name.$invalid,'glyphicon-ok':editSensor.name.$valid && editSensor.name.$dirty}"></span>
+                <ul class="danger text-danger">
+                    <li ng-if="editSensor.name.$error.required">Name is required</li>
+                    <li ng-if="editSensor.name.$error.maxlength">Name cannot be more than 255 characters</li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group  has-feedback" ng-class="{'has-error': editSensor.serial.$invalid,'has-success':(editSensor.serial.$valid && editSensor.serial.$dirty)}">
+            <label for="serial" class="control-label col-md-6">Serial Number</label>
+            <div class="col-md-12">
+                <input id="serial" name="serial" type="text" required="required" class="form-control"
+                       ng-model="sensor.serial" ng-pattern="/^28-[0-9a-fA-F]{12}$/" />
+                <span class="glyphicon form-control-feedback " ng-class="{'glyphicon-remove':editSensor.serial.$invalid,'glyphicon-ok':editSensor.serial.$valid && editSensor.serial.$dirty}"></span>
+                <ul class="danger text-danger">
+                    <li ng-if="editSensor.serial.$error.required">Serial is required</li>
+                    <li ng-if="editSensor.serial.$error.pattern">Serial must start with '28-' followed by 12 hex characters</li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="monitor" class="control-label col-md-6 ">Monitor Sensor</label>
+            <div class="col-md-12">
+                <select id="monitor" name="monitor" type="text" required="required" class="form-control" ng-model="sensor.monitor"
+                        ng-options="val.bool as val.text for val in [{text:'true',bool:true},{text:'false',bool:false}]">
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="outlet" class="control-label col-md-6">Outlet</label>
+            <div class="col-md-12">
+                <select id="outlet" name="outlet" class="form-control validationError" ng-model="sensor.outlet"
+                        ng-options="outlet as outlet.name for outlet in outlets">
+                    <option value="">None</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group has-feedback">
+            <label for="setTemp" class="control-label col-md-6">Target Temp</label>
+            <div class="col-md-12">
+                <input id="setTemp" name="setTemp" class="form-control" temperature ng-model="sensor.setTemperature" type="number" step="0.01" min="0" required="required" />
+                <span class="glyphicon form-control-feedback"></span>
+                <ul class="danger text-danger">
+                    <li ng-if="editSensor.setTemp.$error.required">Target temperature is required</li>
+                    <li ng-if="editSensor.setTemp.$error.min">Target temperature cannot be below 32</li>
+                    <li ng-if="editSensor.setTemp.$error.max">Target temperature cannot be above 100</li>
+                </ul>
+            </div>
+        </div>
+    </form>
+    <div class="col-md-5 col-md-offset-20">
+        <button class="btn" ng-click="close()" ng-disabled="editSensor.$invalid">Save</button>
+    </div>
+</div>
